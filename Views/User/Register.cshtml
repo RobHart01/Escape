@@ -1,0 +1,21 @@
+@model UserViewModel
+
+<h1>Join the EClub</h1>
+<form asp-controller="User" asp-action="Register" method="post">
+    <label asp-for="NewUser.UserName">Username</label><br>
+    <input asp-for="NewUser.UserName"><br>
+    <span asp-validation-for="NewUser.UserName"></span><br>
+    <label asp-for="NewUser.FirstName">First name</label><br>
+    <input asp-for="NewUser.FirstName"><br>
+    <span asp-validation-for="NewUser.FirstName"></span><br>
+    <label asp-for="NewUser.LastName">Last name</label><br>
+    <input asp-for="NewUser.LastName"><br>
+    <span asp-validation-for="NewUser.LastName"></span><br>
+    <label asp-for="NewUser.Password">Password</label><br>
+    <input asp-for="NewUser.Password"><br>
+    <span asp-validation-for="NewUser.Password"></span><br>
+    <label asp-for="NewUser.Confirm">Confirm password</label><br>
+    <input asp-for="NewUser.Confirm"><br>
+    <span asp-validation-for="NewUser.Confirm"></span><br>
+    <input type="submit" value="Sign Up">
+</form>

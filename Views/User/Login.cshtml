@@ -1,0 +1,16 @@
+@model UserViewModel
+<p>Login to Escape</p>
+<p>Sign in with your email address and/or username</p>
+<form asp-controller="User" asp-action="Login" method="post">
+
+    <label asp-for="NewLogin.UserNameAttempt">Username:</label><br>
+    <input asp-for="NewLogin.UserNameAttempt"><br>
+    <span asp-validation-for="NewLogin.UserNameAttempt"></span><br>
+
+    <label asp-for="NewLogin.PasswordAttempt">Password:</label><br>
+    <input asp-for="NewLogin.PasswordAttempt"><br>
+    <span asp-validation-for="NewLogin.PasswordAttempt"></span><br>
+
+    <input type="submit" value="Login">
+
+</form>
