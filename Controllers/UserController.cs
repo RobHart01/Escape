@@ -71,7 +71,7 @@ namespace Escape.Controllers
                     ModelState.AddModelError("PasswordAttempt", "Invalid Email or Password");
                     return View("Register");
                 }
-                return RedirectToAction("HobbyDashboard", "Hobby");
+                return RedirectToAction("Userdashboard");
             }
             return View("Register");
         }

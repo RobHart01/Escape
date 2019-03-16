@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escape.Migrations
 {
     [DbContext(typeof(EscapeContext))]
-    [Migration("20190314063405_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20190316070130_First")]
+    partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,8 @@ namespace Escape.Migrations
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Admin");
 
                     b.Property<DateTime>("CreatedAt");
 

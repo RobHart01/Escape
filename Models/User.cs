@@ -31,6 +31,7 @@ namespace Escape.Models
         [MinLength(8, ErrorMessage = "Invalid")]
         [Compare("Password")]
         public string Confirm { get; set; }
+        public bool Admin { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
