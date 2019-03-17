@@ -10,6 +10,8 @@ namespace Escape.Models
     {
         [Key]
         public int ArticleId { get; set; }
+        [Required(ErrorMessage = "Please enter an image")]
+        public string image { get; set; }
 
         [Required(ErrorMessage = "Please enter a title")]
         public string title { get; set; }
@@ -17,20 +19,12 @@ namespace Escape.Models
         [Required(ErrorMessage = "Please enter a sub title")]
         public string subtitle { get; set; }
 
-        public string image { get;
-
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Please create a password")]
-        [MinLength(8, ErrorMessage = "Password must be at least 8 characters or longer")]
-        public string Password { get; set; }
-
+        [Required(ErrorMessage = "Please enter the body")]
+        public string body { get; set; }
         [NotMapped]
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Pleae enter your password again")]
-        [MinLength(8, ErrorMessage = "Invalid")]
-        [Compare("Password")]
-        public string Confirm { get; set; }
-        public bool Admin { get; set; }
+        public int CreatorId { get; set; }
+        public User Creator { get; set; }
+        public 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }

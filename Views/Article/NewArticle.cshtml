@@ -1,0 +1,22 @@
+<form asp-controller="Article" asp-action="CreateArticle" method="post">
+
+    <label asp-for="NewArticle.image">Header Image:</label><br>
+    <input type="file" name="file">
+    <button type="submit" name="submit">Upload</button>
+    <span asp-validation-for="NewArticle.image"></span><br>
+
+    <label asp-for="NewArticle.title">Title:</label><br>
+    <input asp-for="NewArticle.title"><br>
+    <span asp-validation-for="NewArticle.title"></span><br>
+
+    <label asp-for="NewArticle.subtitle">Sub Title:</label><br>
+    <input asp-for="NewArticle.subtitle"><br>
+    <span asp-validation-for="NewArticle.subtitle"></span><br>
+
+    <label asp-for="NewArticle.body">Body:</label><br>
+    <input asp-for="NewArticle.body"><br>
+    <span asp-validation-for="NewArticle.body"></span><br>
+    
+    <input type="file" name="file" value="Create Article">
+
+</form>

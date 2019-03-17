@@ -17,16 +17,16 @@ namespace Escape.Controllers
         {
             dbContext = context;
         }
-        [HttpGet("escape/newarticle")]
+        [HttpGet("escape/article/new")]
         public IActionResult NewArticle()
         {
             return View();
         }
-        [HttpGet("escape/editarticle")]
+        [HttpGet("escape/article/edit")]
         public IActionResult EditArticle()
         {
             return View();
         }
-        
+
     }
 }
