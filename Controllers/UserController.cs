@@ -40,7 +40,7 @@ namespace Escape.Controllers
                 dbContext.Add(SubmittedUser);
                 dbContext.SaveChanges();
                 HttpContext.Session.SetInt32("UserId", SubmittedUser.UserId);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Userdashboard");
             }
             return View("Register");
         }
@@ -80,7 +80,7 @@ namespace Escape.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return View("Index");
+            return View("Index", "Home");
         }
     }
 }

@@ -24,7 +24,6 @@ namespace Escape.Models
         [NotMapped]
         public int CreatorId { get; set; }
         public User Creator { get; set; }
-        public 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Escape.Migrations
 {
-    public partial class First : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,6 @@ namespace Escape.Migrations
                     LastName = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
-                    Admin = table.Column<bool>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
                 },

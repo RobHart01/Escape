@@ -50,8 +50,6 @@ namespace Escape.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Admin");
-
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<string>("FirstName")
