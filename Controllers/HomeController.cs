@@ -16,6 +16,5 @@ namespace Escape.Controllers
         {
             return View();
         }
-
     }
 }

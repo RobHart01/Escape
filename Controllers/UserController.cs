@@ -18,13 +18,30 @@ namespace Escape.Controllers
             dbContext = context;
         }
 
+        private User LoggedInUser
+        {
+            get
+            {
+                return dbContext.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
+            }
+        }
+
+        // User Dashboard
+        [HttpGet("escape/dashboard")]
+        public IActionResult UserDashboard()
+        {
+            return View();
+        }
+
+        // Register
         [HttpGet("escape/register")]
         public IActionResult Register()
         {
             return View();
         }
-
-        [HttpPost("escape/newuser")]
+        
+        // Register Action
+        [HttpPost("escape/newregister")]
         public IActionResult Register(UserViewModel RegisterData)
         {
             User SubmittedUser = RegisterData.NewUser;
@@ -40,17 +57,19 @@ namespace Escape.Controllers
                 dbContext.Add(SubmittedUser);
                 dbContext.SaveChanges();
                 HttpContext.Session.SetInt32("UserId", SubmittedUser.UserId);
-                return RedirectToAction("Userdashboard");
+                return RedirectToAction("UserDashboard");
             }
             return View("Register");
         }
 
+        // Login
         [HttpGet("escape/login")]
         public IActionResult Login()
         {
             return View();
         }
 
+        // Login Action
         [HttpPost("escape/newlogin")]
         public IActionResult Login(UserViewModel LoginData)
         {
@@ -61,7 +80,7 @@ namespace Escape.Controllers
                 if (UserInDb is null)
                 {
                     ModelState.AddModelError("UserNameAttempt", "Invalid Username/Password");
-                    return View("Register");
+                    return View("Login");
                 }
                 HttpContext.Session.SetInt32("UserId", UserInDb.UserId);
                 PasswordHasher<Login> hasher = new PasswordHasher<Login>();
@@ -69,13 +88,14 @@ namespace Escape.Controllers
                 if (result is 0)
                 {
                     ModelState.AddModelError("PasswordAttempt", "Invalid Email or Password");
-                    return View("Register");
+                    return View("Login");
                 }
-                return RedirectToAction("Userdashboard");
+                return RedirectToAction("UserDashboard");
             }
-            return View("Register");
+            return View("Login");
         }
 
+        // Logout Action
         [HttpPost("escape/logout")]
         public IActionResult Logout()
         {
