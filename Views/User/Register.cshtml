@@ -1,7 +1,7 @@
 @model UserViewModel
 
 <h1>Join the EClub</h1>
-<form asp-controller="User" asp-action="Register" method="post">
+<form asp-controller="User" asp-action="NewRegister" method="post">
     <label asp-for="NewUser.UserName">Username</label><br>
     <input asp-for="NewUser.UserName"><br>
     <span asp-validation-for="NewUser.UserName"></span><br>

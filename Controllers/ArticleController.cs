@@ -18,12 +18,36 @@ namespace Escape.Controllers
             dbContext = context;
         }
 
+        private User LoggedInUser
+        {
+            get
+            {
+                return dbContext.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
+            }
+        }
+        
+        // New Article
         [HttpGet("escape/article/new")]
         public IActionResult NewArticle()
         {
             return View();
         }
-        
+
+        // New Article Action
+        [HttpPost("escape/article/createarticle")]
+        public IActionResult CreateArticle(ArticleViewModel NewArticleData)
+        {
+            Article SubmittedArticle = NewArticleData.NewArticle;
+            if (ModelState.IsValid)
+            {
+                dbContext.Add(SubmittedArticle);
+                dbContext.SaveChanges();
+                return RedirectToAction("UserDashboard");
+            }
+            return View("NewArticle");
+        }
+
+        // Edit Article
         [HttpGet("escape/article/edit")]
         public IActionResult EditArticle()
         {

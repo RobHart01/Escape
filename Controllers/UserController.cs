@@ -42,7 +42,7 @@ namespace Escape.Controllers
         
         // Register Action
         [HttpPost("escape/newregister")]
-        public IActionResult Register(UserViewModel RegisterData)
+        public IActionResult NewRegister(UserViewModel RegisterData)
         {
             User SubmittedUser = RegisterData.NewUser;
             if (ModelState.IsValid)
@@ -71,7 +71,7 @@ namespace Escape.Controllers
 
         // Login Action
         [HttpPost("escape/newlogin")]
-        public IActionResult Login(UserViewModel LoginData)
+        public IActionResult NewLogin(UserViewModel LoginData)
         {
             Login SubmmitedLogin = LoginData.NewLogin;
             if (ModelState.IsValid)
