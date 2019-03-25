@@ -10,7 +10,7 @@ namespace Escape.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("")]
+        [Route("escape")]
         [HttpGet]
         public IActionResult Index()
         {

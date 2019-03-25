@@ -8,38 +8,30 @@ using Escape.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace Escape.Controllers
-{
-    public class ArticleController : Controller
-    {
+namespace Escape.Controllers {
+    public class ArticleController : Controller {
         private EscapeContext dbContext;
-        public ArticleController(EscapeContext context)
-        {
+        public ArticleController(EscapeContext context) {
             dbContext = context;
         }
 
-        private User LoggedInUser
-        {
-            get
-            {
+        private User LoggedInUser {
+            get {
                 return dbContext.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
             }
         }
-        
+
         // New Article
-        [HttpGet("escape/article/new")]
-        public IActionResult NewArticle()
-        {
+        [HttpGet("newarticle")]
+        public IActionResult NewArticle() {
             return View();
         }
 
         // New Article Action
-        [HttpPost("escape/article/createarticle")]
-        public IActionResult CreateArticle(ArticleViewModel NewArticleData)
-        {
+        [HttpPost("createarticle")]
+        public IActionResult CreateArticle(ArticleViewModel NewArticleData) {
             Article SubmittedArticle = NewArticleData.NewArticle;
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 dbContext.Add(SubmittedArticle);
                 dbContext.SaveChanges();
                 return RedirectToAction("UserDashboard");
@@ -49,8 +41,7 @@ namespace Escape.Controllers
 
         // Edit Article
         [HttpGet("escape/article/edit")]
-        public IActionResult EditArticle()
-        {
+        public IActionResult EditArticle() {
             return View();
         }
     }
