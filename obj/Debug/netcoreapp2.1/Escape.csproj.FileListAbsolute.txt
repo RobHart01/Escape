@@ -21,7 +21,7 @@
 /Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/User/EditAccount.g.cshtml.cs
 /Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/User/Login.g.cshtml.cs
 /Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/User/Register.g.cshtml.cs
-/Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/User/Userdashboard.g.cshtml.cs
+/Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/User/UserDashboard.g.cshtml.cs
 /Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.g.cshtml.cs
 /Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.g.cshtml.cs
 /Users/robinhartley/Documents/Escape/obj/Debug/netcoreapp2.1/Escape.RazorTargetAssemblyInfo.cache

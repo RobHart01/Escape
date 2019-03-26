@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace Escape.Models
 {
     public class Article
     {
         [Key]
         public int ArticleId { get; set; }
-        [Required(ErrorMessage = "Please enter an image")]
-        public string image { get; set; }
 
         [Required(ErrorMessage = "Please enter a title")]
         public string title { get; set; }

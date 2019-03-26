@@ -22,13 +22,13 @@ namespace Escape.Controllers {
         }
 
         // New Article
-        [HttpGet("newarticle")]
+        [HttpGet("escape/new/article")]
         public IActionResult NewArticle() {
             return View();
         }
 
         // New Article Action
-        [HttpPost("createarticle")]
+        [HttpPost("escape/create/article")]
         public IActionResult CreateArticle(ArticleViewModel NewArticleData) {
             Article SubmittedArticle = NewArticleData.NewArticle;
             if (ModelState.IsValid) {

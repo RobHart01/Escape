@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escape.Migrations
 {
     [DbContext(typeof(EscapeContext))]
-    [Migration("20190318192659_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20190326034202_First")]
+    partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,6 +18,51 @@ namespace Escape.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("Escape.Models.Article", b =>
+                {
+                    b.Property<int>("ArticleId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int?>("CreatorUserId");
+
+                    b.Property<DateTime>("UpdatedAt");
+
+                    b.Property<string>("body")
+                        .IsRequired();
+
+                    b.Property<string>("subtitle")
+                        .IsRequired();
+
+                    b.Property<string>("title")
+                        .IsRequired();
+
+                    b.HasKey("ArticleId");
+
+                    b.HasIndex("CreatorUserId");
+
+                    b.ToTable("Articles");
+                });
+
+            modelBuilder.Entity("Escape.Models.Like", b =>
+                {
+                    b.Property<int>("LikeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ArticleId");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("LikeId");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Likes");
+                });
 
             modelBuilder.Entity("Escape.Models.Review", b =>
                 {
@@ -71,6 +116,26 @@ namespace Escape.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Escape.Models.Article", b =>
+                {
+                    b.HasOne("Escape.Models.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorUserId");
+                });
+
+            modelBuilder.Entity("Escape.Models.Like", b =>
+                {
+                    b.HasOne("Escape.Models.Article", "Articles")
+                        .WithMany()
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Escape.Models.User", "Likers")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

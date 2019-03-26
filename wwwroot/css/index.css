@@ -1,0 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#navigation nav ul li a {
+    text-decoration: none;
+}
